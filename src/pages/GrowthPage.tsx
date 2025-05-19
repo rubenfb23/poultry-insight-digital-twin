@@ -250,6 +250,8 @@ const GrowthPage = () => {
                   const date = new Date();
                   date.setDate(date.getDate() - (currentDay - day.day));
                   const diffPercent = ((day.actual - day.ideal) / day.ideal * 100).toFixed(1);
+                  // Convert diffPercent string to number for comparison
+                  const diffPercentNum = parseFloat(diffPercent);
                   
                   return (
                     <TableRow key={day.day}>
@@ -260,9 +262,9 @@ const GrowthPage = () => {
                       <TableCell>{day.actual}</TableCell>
                       <TableCell>{day.ideal}</TableCell>
                       <TableCell className={
-                        diffPercent > 0 ? 'text-green-600' : diffPercent < 0 ? 'text-red-600' : ''
+                        diffPercentNum > 0 ? 'text-green-600' : diffPercentNum < 0 ? 'text-red-600' : ''
                       }>
-                        {diffPercent > 0 ? '+' : ''}{diffPercent}%
+                        {diffPercentNum > 0 ? '+' : ''}{diffPercent}%
                       </TableCell>
                       <TableCell>{day.gain}</TableCell>
                     </TableRow>
@@ -278,3 +280,4 @@ const GrowthPage = () => {
 };
 
 export default GrowthPage;
+
