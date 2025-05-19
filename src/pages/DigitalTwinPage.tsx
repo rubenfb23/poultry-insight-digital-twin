@@ -82,6 +82,7 @@ const DigitalTwinPage = () => {
   const [selectedDay, setSelectedDay] = useState(29); // Current day in simulation
   const [activeScenario, setActiveScenario] = useState(1); // Default scenario
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   
   const simulationData = React.useMemo(() => generateSimulationData(), []);
   const scenarios = React.useMemo(() => generateScenarios(), []);
@@ -307,7 +308,7 @@ const DigitalTwinPage = () => {
                   <CardDescription>Curva de crecimiento simulada</CardDescription>
                 </div>
                 
-                <Dialog>
+                <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
                   <DialogTrigger asChild>
                     <Button variant="outline" size="sm">Detalles</Button>
                   </DialogTrigger>
@@ -443,9 +444,13 @@ const DigitalTwinPage = () => {
                   <CardDescription>Escenario: {scenarioData.name}</CardDescription>
                 </div>
                 
-                <DrawerTrigger asChild onClick={() => setIsDrawerOpen(true)}>
-                  <Button variant="outline" size="sm">Ver Modelo 3D</Button>
-                </DrawerTrigger>
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  onClick={() => setIsDrawerOpen(true)}
+                >
+                  Ver Modelo 3D
+                </Button>
               </div>
             </CardHeader>
             <CardContent>
@@ -552,3 +557,4 @@ const DigitalTwinPage = () => {
 };
 
 export default DigitalTwinPage;
+
