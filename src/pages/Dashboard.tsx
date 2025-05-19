@@ -6,7 +6,7 @@ import ConsumptionChart from '@/components/dashboard/ConsumptionChart';
 import MortalityChart from '@/components/dashboard/MortalityChart';
 import GrowthChart from '@/components/dashboard/GrowthChart';
 import EnvironmentalFactors from '@/components/dashboard/EnvironmentalFactors';
-import { ThermometerSun, DropletsFilled, CircleChevronDown, Timer, PowerIcon, Gauge } from 'lucide-react';
+import { ThermometerSun, Droplets, ArrowDown, Timer, PowerIcon, Gauge } from 'lucide-react';
 
 const Dashboard = () => {
   return (
@@ -26,7 +26,7 @@ const Dashboard = () => {
         <StatCard 
           title="Consumo de Agua" 
           value="850 L" 
-          icon={<DropletsFilled className="h-5 w-5" />} 
+          icon={<Droplets className="h-5 w-5" />} 
           trend={{ value: 2.5, isPositive: false }}
           color="text-farm-teal"
         />
@@ -34,7 +34,7 @@ const Dashboard = () => {
         <StatCard 
           title="Mortandad Diaria" 
           value="12 aves" 
-          icon={<CircleChevronDown className="h-5 w-5" />} 
+          icon={<ArrowDown className="h-5 w-5" />} 
           trend={{ value: 0.8, isPositive: true }}
           color="text-farm-red"
         />

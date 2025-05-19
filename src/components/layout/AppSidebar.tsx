@@ -17,16 +17,17 @@ import {
   Gauge,
   ThermometerSun,
   Layers3,
-  DropletsFilled,
+  Droplets,
   Timer,
   PowerIcon,
   Battery,
-  CircleChevronDown
+  ArrowDown
 } from "lucide-react";
 import { useLocation } from 'react-router-dom';
 
 export function AppSidebar() {
-  const { collapsed } = useSidebar();
+  const { state } = useSidebar();
+  const collapsed = state === "collapsed";
   const location = useLocation();
   const currentPath = location.pathname;
 
@@ -34,10 +35,10 @@ export function AppSidebar() {
     { icon: Gauge, label: "Dashboard", path: "/" },
     { icon: ThermometerSun, label: "Ambiente", path: "/environmental" },
     { icon: Layers3, label: "Alimentación", path: "/feeding" },
-    { icon: CircleChevronDown, label: "Mortandad", path: "/mortality" },
+    { icon: ArrowDown, label: "Mortandad", path: "/mortality" },
     { icon: Timer, label: "Peso y Crecimiento", path: "/growth" },
     { icon: PowerIcon, label: "Consumos", path: "/consumption" },
-    { icon: DropletsFilled, label: "Gemelo Digital", path: "/digital-twin" }
+    { icon: Droplets, label: "Gemelo Digital", path: "/digital-twin" }
   ];
 
   // Function to check if the current route is active
@@ -55,7 +56,7 @@ export function AppSidebar() {
   return (
     <Sidebar
       className={`transition-all duration-300 ${collapsed ? "w-14" : "w-64"} border-r`}
-      collapsible
+      collapsible="icon"
     >
       <SidebarTrigger className="m-2 self-end" />
       
@@ -72,7 +73,7 @@ export function AppSidebar() {
             )}
           </div>
           
-          <SidebarGroup defaultOpen={isGroupActive()}>
+          <SidebarGroup>
             <SidebarGroupLabel>
               {!collapsed && "Monitoreo"}
             </SidebarGroupLabel>
