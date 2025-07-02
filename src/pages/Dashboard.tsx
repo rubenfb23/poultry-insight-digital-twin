@@ -7,8 +7,12 @@ import MortalityChart from '@/components/dashboard/MortalityChart';
 import GrowthChart from '@/components/dashboard/GrowthChart';
 import EnvironmentalFactors from '@/components/dashboard/EnvironmentalFactors';
 import { ThermometerSun, Droplets, ArrowDown, Timer, PowerIcon, Gauge } from 'lucide-react';
+import { useFarmMonitoring } from '@/hooks/useFarmMonitoring';
 
 const Dashboard = () => {
+  // Initialize farm monitoring
+  useFarmMonitoring();
+
   return (
     <div className="space-y-6">
       <h1 className="text-2xl font-bold tracking-tight">Panel de Control</h1>
