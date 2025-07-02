@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -9,7 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Switch } from '@/components/ui/switch';
 import { Badge } from '@/components/ui/badge';
 import { useToast } from '@/hooks/use-toast';
-import { Sensor, Plus, Settings, Wifi, WifiOff, Trash2, Edit } from 'lucide-react';
+import { Settings, Plus, Wifi, WifiOff, Trash2, Edit } from 'lucide-react';
 
 interface SensorConfig {
   id: string;
@@ -151,7 +150,7 @@ const SensorConfigPage = () => {
   return (
     <div className="space-y-6">
       <div className="flex items-center space-x-2">
-        <Sensor className="h-6 w-6 text-primary" />
+        <Settings className="h-6 w-6 text-primary" />
         <h1 className="text-2xl font-bold tracking-tight">Configuración de Sensores</h1>
       </div>
       

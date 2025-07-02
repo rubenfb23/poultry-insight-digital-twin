@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { 
@@ -23,7 +22,7 @@ import {
   Battery,
   ArrowDown,
   FileInput,
-  Sensor
+  Settings
 } from "lucide-react";
 import { useLocation } from 'react-router-dom';
 
@@ -45,7 +44,7 @@ export function AppSidebar() {
 
   const dataEntryItems = [
     { icon: FileInput, label: "Datos Manuales", path: "/manual-data" },
-    { icon: Sensor, label: "Configurar Sensor", path: "/sensor-config" }
+    { icon: Settings, label: "Configurar Sensor", path: "/sensor-config" }
   ];
 
   // Function to check if the current route is active
