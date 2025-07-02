@@ -13,6 +13,8 @@ import MortalityPage from "./pages/MortalityPage";
 import GrowthPage from "./pages/GrowthPage";
 import ConsumptionPage from "./pages/ConsumptionPage";
 import DigitalTwinPage from "./pages/DigitalTwinPage";
+import ManualDataPage from "./pages/ManualDataPage";
+import SensorConfigPage from "./pages/SensorConfigPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,6 +34,8 @@ const App = () => (
             <Route path="/growth" element={<GrowthPage />} />
             <Route path="/consumption" element={<ConsumptionPage />} />
             <Route path="/digital-twin" element={<DigitalTwinPage />} />
+            <Route path="/manual-data" element={<ManualDataPage />} />
+            <Route path="/sensor-config" element={<SensorConfigPage />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

@@ -21,7 +21,9 @@ import {
   Timer,
   PowerIcon,
   Battery,
-  ArrowDown
+  ArrowDown,
+  FileInput,
+  Sensor
 } from "lucide-react";
 import { useLocation } from 'react-router-dom';
 
@@ -31,7 +33,7 @@ export function AppSidebar() {
   const location = useLocation();
   const currentPath = location.pathname;
 
-  const menuItems = [
+  const monitoringItems = [
     { icon: Gauge, label: "Dashboard", path: "/" },
     { icon: ThermometerSun, label: "Ambiente", path: "/environmental" },
     { icon: Layers3, label: "Alimentación", path: "/feeding" },
@@ -41,11 +43,13 @@ export function AppSidebar() {
     { icon: Droplets, label: "Gemelo Digital", path: "/digital-twin" }
   ];
 
+  const dataEntryItems = [
+    { icon: FileInput, label: "Datos Manuales", path: "/manual-data" },
+    { icon: Sensor, label: "Configurar Sensor", path: "/sensor-config" }
+  ];
+
   // Function to check if the current route is active
   const isActive = (path: string) => currentPath === path;
-  
-  // Function to check if any route in the current group is active
-  const isGroupActive = () => menuItems.some(item => isActive(item.path));
   
   // Class for active and inactive nav links
   const getNavClass = ({ isActive }: { isActive: boolean }) => 
@@ -80,7 +84,28 @@ export function AppSidebar() {
             
             <SidebarGroupContent>
               <SidebarMenu>
-                {menuItems.map((item) => (
+                {monitoringItems.map((item) => (
+                  <SidebarMenuItem key={item.path}>
+                    <SidebarMenuButton asChild>
+                      <NavLink to={item.path} className={getNavClass}>
+                        <item.icon className="h-5 w-5 mr-3 flex-shrink-0" />
+                        {!collapsed && <span>{item.label}</span>}
+                      </NavLink>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                ))}
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+
+          <SidebarGroup>
+            <SidebarGroupLabel>
+              {!collapsed && "Entrada de Datos"}
+            </SidebarGroupLabel>
+            
+            <SidebarGroupContent>
+              <SidebarMenu>
+                {dataEntryItems.map((item) => (
                   <SidebarMenuItem key={item.path}>
                     <SidebarMenuButton asChild>
                       <NavLink to={item.path} className={getNavClass}>
